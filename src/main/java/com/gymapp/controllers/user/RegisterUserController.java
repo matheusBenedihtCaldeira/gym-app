@@ -3,6 +3,7 @@ package com.gymapp.controllers.user;
 import com.gymapp.models.dto.UserDTO;
 import com.gymapp.models.entities.UserEntity;
 import com.gymapp.services.RegisterUserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
