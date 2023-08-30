@@ -15,11 +15,20 @@ public class UpdateUserService {
 
     public UserEntity update(UserDTO dataDTO, Long userId){
         UserEntity userFromDB = repository.findById(userId).get();
-        UserEntity userWithDataToUpdate = new UserEntity();
-        BeanUtils.copyProperties(dataDTO, userWithDataToUpdate);
-        BeanUtils.copyProperties(userWithDataToUpdate, userFromDB);
+        UserEntity userWithDataToUpdate = convertDTO(dataDTO);
+        updateData(userFromDB, userWithDataToUpdate);
         userFromDB.setId(userId);
         return repository.save(userFromDB);
+    }
+
+    public void updateData(UserEntity userUpdated, UserEntity userWithDataToUpdate){
+        BeanUtils.copyProperties(userWithDataToUpdate, userUpdated);
+    }
+
+    public UserEntity convertDTO(UserDTO dataDTO){
+        UserEntity user = new UserEntity();
+        BeanUtils.copyProperties(dataDTO, user);
+        return user;
     }
 
 }
