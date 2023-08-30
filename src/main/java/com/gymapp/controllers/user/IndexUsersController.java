@@ -1,7 +1,7 @@
 package com.gymapp.controllers.user;
 
 import com.gymapp.models.entities.UserEntity;
-import com.gymapp.services.IndexUsersService;
+import com.gymapp.services.user.IndexUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.gymapp.services;
+package com.gymapp.services.user;
 
 import com.gymapp.models.dto.UserDTO;
 import com.gymapp.models.entities.UserEntity;
