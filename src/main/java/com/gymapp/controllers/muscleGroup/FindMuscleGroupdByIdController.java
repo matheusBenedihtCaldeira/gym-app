@@ -18,5 +18,4 @@ public class FindMuscleGroupdByIdController {
         MuscleGroupEntity muscleGroup = service.findById(id);
         return ResponseEntity.ok().body(muscleGroup);
     }
-
 }
