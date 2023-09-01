@@ -9,16 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tb_muscle_group")
+@Table(name = "tb_exercises")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MuscleGroupEntity {
-
+public class ExerciseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "TEXT")
+    private String description;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "exercise_id")
-    private List<ExerciseEntity> exercises = new ArrayList<>();
+    @JoinColumn(name = "muscle_group_id")
+    private List<MuscleGroupEntity> muscleGroup = new ArrayList<>();
 }
