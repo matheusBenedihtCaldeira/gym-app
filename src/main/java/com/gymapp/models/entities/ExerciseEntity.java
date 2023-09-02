@@ -19,7 +19,7 @@ public class ExerciseEntity {
     private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "muscle_group_id")
-    private List<MuscleGroupEntity> muscleGroup = new ArrayList<>();
+    private MuscleGroupEntity muscleGroup;
 }
