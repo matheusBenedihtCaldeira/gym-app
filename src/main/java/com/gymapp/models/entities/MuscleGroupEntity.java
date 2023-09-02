@@ -19,7 +19,5 @@ public class MuscleGroupEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "muscleGroup")
-    @JsonIgnore
-    private List<ExerciseEntity> exercises = new ArrayList<>();
+
 }
