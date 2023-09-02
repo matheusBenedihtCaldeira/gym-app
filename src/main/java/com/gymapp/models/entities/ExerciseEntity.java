@@ -16,7 +16,7 @@ public class ExerciseEntity {
     private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "muscle_group_id")
     private MuscleGroupEntity muscleGroup;
 }
