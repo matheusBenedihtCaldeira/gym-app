@@ -1,0 +1,24 @@
+package com.gymapp.controllers.exercise;
+
+import com.gymapp.models.entities.ExerciseEntity;
+import com.gymapp.services.exercise.FindExerciseByIdService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value = "/exercise")
+public class FindExerciseByIdController {
+
+    @Autowired
+    private FindExerciseByIdService service;
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<ExerciseEntity> findById(@PathVariable Long id){
+        ExerciseEntity exercise = service.findById(id);
+        return ResponseEntity.ok().body(exercise);
+    }
+}
