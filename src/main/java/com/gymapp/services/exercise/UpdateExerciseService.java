@@ -29,5 +29,4 @@ public class UpdateExerciseService {
         exerciseFromDB.setId(exerciseID);
         return repository.save(exerciseFromDB);
     }
-
 }
