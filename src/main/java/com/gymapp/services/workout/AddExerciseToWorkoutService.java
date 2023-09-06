@@ -18,9 +18,17 @@ public class AddExerciseToWorkoutService {
     private ExerciseRepository exerciseRepository;
 
     public WorkoutEntity addExercise(AddExerciseToWorkoutRequest data, Long workoutID){
-        WorkoutEntity workout = workoutRepository.findById(workoutID).get();
-        ExerciseEntity exercise = exerciseRepository.findById(data.getExerciseId()).get();
+        WorkoutEntity workout = findWorkoutById(workoutID);
+        ExerciseEntity exercise = findExerciseById(data.getExerciseId());
         workout.getExercises().add(exercise);
         return workoutRepository.save(workout);
+    }
+
+    public ExerciseEntity findExerciseById(Long id){
+        return exerciseRepository.findById(id).get();
+    }
+
+    public WorkoutEntity findWorkoutById(Long id){
+        return workoutRepository.findById(id).get();
     }
 }

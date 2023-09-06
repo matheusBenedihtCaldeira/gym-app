@@ -19,9 +19,13 @@ public class RegisterWorkoutService {
 
     public WorkoutEntity register(WorkoutDTO data){
         WorkoutEntity workout = new WorkoutEntity();
-        ExerciseEntity exercise = exerciseRepository.findById(data.getExerciseId()).get();
+        ExerciseEntity exercise = findExerciseById(data.getExerciseId());
         workout.setName(data.getName());
         workout.getExercises().add(exercise);
         return repository.save(workout);
+    }
+
+    public ExerciseEntity findExerciseById(Long id){
+        return exerciseRepository.findById(id).get();
     }
 }
