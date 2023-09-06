@@ -14,8 +14,12 @@ public class UploadWorkoutNameService {
 
 
     public WorkoutEntity uploadName(UploadWorkoutNameRequest data, Long id){
-        WorkoutEntity workout = repository.findById(id).get();
+        WorkoutEntity workout = findWorkoutById(id);
         workout.setName(data.getName());
         return repository.save(workout);
+    }
+
+    public WorkoutEntity findWorkoutById(Long id){
+        return repository.findById(id).get();
     }
 }

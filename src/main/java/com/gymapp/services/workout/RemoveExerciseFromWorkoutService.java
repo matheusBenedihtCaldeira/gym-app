@@ -17,9 +17,17 @@ public class RemoveExerciseFromWorkoutService {
     private ExerciseRepository exerciseRepository;
 
     public void removeExerciseFromWorkout(Long workoutId, Long exerciseId){
-        WorkoutEntity workout = workoutRepository.findById(workoutId).get();
-        ExerciseEntity exercise = exerciseRepository.findById(exerciseId).get();
+        WorkoutEntity workout = findWorkoutById(workoutId);
+        ExerciseEntity exercise = findExerciseById(exerciseId);
         workout.getExercises().remove(exercise);
         workoutRepository.save(workout);
+    }
+
+    public WorkoutEntity findWorkoutById(Long id){
+        return workoutRepository.findById(id).get();
+    }
+
+    public ExerciseEntity findExerciseById(Long id){
+        return exerciseRepository.findById(id).get();
     }
 }
