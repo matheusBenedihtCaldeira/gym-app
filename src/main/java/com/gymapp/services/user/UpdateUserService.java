@@ -34,5 +34,4 @@ public class UpdateUserService {
         BeanUtils.copyProperties(dataDTO, user);
         return user;
     }
-
 }

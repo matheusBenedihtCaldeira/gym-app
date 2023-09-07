@@ -23,5 +23,4 @@ public class RegisterUserService {
         BeanUtils.copyProperties(dataDTO, user);
         return user;
     }
-
 }

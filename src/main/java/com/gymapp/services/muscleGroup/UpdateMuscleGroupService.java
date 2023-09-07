@@ -14,12 +14,24 @@ public class UpdateMuscleGroupService {
     private MuscleGroupRepository repository;
 
     public MuscleGroupEntity update(MuscleGroupDTO dataDTO, Long id){
-        MuscleGroupEntity muscleGroupToUpdate = new MuscleGroupEntity();
-        MuscleGroupEntity muscleGroupUpdated = repository.findById(id).get();
-        BeanUtils.copyProperties(dataDTO, muscleGroupToUpdate);
+        MuscleGroupEntity muscleGroupToUpdate = convertDTO(dataDTO);
+        MuscleGroupEntity muscleGroupFromDB = findMuscleGroupById(id);
         muscleGroupToUpdate.setId(id);
-        BeanUtils.copyProperties(muscleGroupToUpdate, muscleGroupUpdated);
-        return repository.save(muscleGroupUpdated);
+        updateData(muscleGroupToUpdate, muscleGroupFromDB);
+        return repository.save(muscleGroupFromDB);
     }
 
+    public MuscleGroupEntity findMuscleGroupById(Long id){
+        return repository.findById(id).get();
+    }
+
+    public MuscleGroupEntity convertDTO(MuscleGroupDTO data){
+        MuscleGroupEntity muscleGroup = new MuscleGroupEntity();
+        BeanUtils.copyProperties(data, muscleGroup);
+        return muscleGroup;
+    }
+
+    public void updateData(MuscleGroupEntity dataToUpdate, MuscleGroupEntity dataFromDB){
+        BeanUtils.copyProperties(dataToUpdate, dataFromDB);
+    }
 }
