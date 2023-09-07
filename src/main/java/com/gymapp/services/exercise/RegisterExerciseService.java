@@ -5,6 +5,7 @@ import com.gymapp.models.entities.ExerciseEntity;
 import com.gymapp.models.entities.MuscleGroupEntity;
 import com.gymapp.repositories.ExerciseRepository;
 import com.gymapp.repositories.MuscleGroupRepository;
+import com.gymapp.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,6 @@ public class RegisterExerciseService {
     }
 
     public MuscleGroupEntity findMuscleGroupById(Long id){
-        return muscleGroupRepository.findById(id).get();
+        return muscleGroupRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Muscle group entity not found!"));
     }
 }
