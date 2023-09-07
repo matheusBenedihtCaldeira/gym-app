@@ -20,10 +20,14 @@ public class RegisterExerciseService {
 
     public ExerciseEntity register(ExerciseDTO dataDTO){
         ExerciseEntity exercise = new ExerciseEntity();
-        MuscleGroupEntity muscleGroup = muscleGroupRepository.findById(dataDTO.getMuscleGroupId()).get();
+        MuscleGroupEntity muscleGroup = findMuscleGroupById(dataDTO.getMuscleGroupId());
         exercise.setName(dataDTO.getName());
         exercise.setDescription(dataDTO.getDescription());
         exercise.setMuscleGroup(muscleGroup);
         return exerciseRepository.save(exercise);
+    }
+
+    public MuscleGroupEntity findMuscleGroupById(Long id){
+        return muscleGroupRepository.findById(id).get();
     }
 }
