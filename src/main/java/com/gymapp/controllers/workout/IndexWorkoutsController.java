@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/index")
+@RequestMapping(value = "/api/index")
 public class IndexWorkoutsController {
 
     @Autowired
