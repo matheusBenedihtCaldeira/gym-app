@@ -5,6 +5,7 @@ import com.gymapp.models.entities.WorkoutEntity;
 import com.gymapp.models.requests.AddExerciseToWorkoutRequest;
 import com.gymapp.repositories.ExerciseRepository;
 import com.gymapp.repositories.WorkoutRepository;
+import com.gymapp.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +26,10 @@ public class AddExerciseToWorkoutService {
     }
 
     public ExerciseEntity findExerciseById(Long id){
-        return exerciseRepository.findById(id).get();
+        return exerciseRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Exercise not found!"));
     }
 
     public WorkoutEntity findWorkoutById(Long id){
-        return workoutRepository.findById(id).get();
+        return workoutRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Workout not found!"));
     }
 }

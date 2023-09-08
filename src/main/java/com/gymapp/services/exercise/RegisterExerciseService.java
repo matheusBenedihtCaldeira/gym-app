@@ -29,6 +29,6 @@ public class RegisterExerciseService {
     }
 
     public MuscleGroupEntity findMuscleGroupById(Long id){
-        return muscleGroupRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Muscle group entity not found!"));
+        return muscleGroupRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Muscle group not found!"));
     }
 }
