@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/update")
+@RequestMapping(value = "/api/update")
 public class UpdateMuscleGroupController {
 
     @Autowired

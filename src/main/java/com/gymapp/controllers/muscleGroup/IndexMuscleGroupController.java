@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/index")
+@RequestMapping(value = "/api")
 public class IndexMuscleGroupController {
 
     @Autowired
     private IndexMuscleGroupService service;
 
-    @GetMapping(value = "/musclegroup")
+    @GetMapping(value = "/musclegroups")
     public ResponseEntity<List<MuscleGroupEntity>> index(){
         List<MuscleGroupEntity> muscleGroupEntities = service.index();
         return ResponseEntity.ok().body(muscleGroupEntities);
