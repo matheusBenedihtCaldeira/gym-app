@@ -5,6 +5,7 @@ import com.gymapp.models.entities.UserEntity;
 import com.gymapp.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,8 @@ public class RegisterUserService {
     private UserRepository repository;
 
     public UserEntity register(UserDTO dataDTO){
+        String encryptedPassword = new BCryptPasswordEncoder().encode(dataDTO.getPassword());
+        dataDTO.setPassword(encryptedPassword);
         UserEntity user = convertDTO(dataDTO);
         return repository.save(user);
     }
