@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping(value = "/api/register")
@@ -21,6 +24,7 @@ public class RegisterWorkoutController {
     @PostMapping(value = "/workout")
     public ResponseEntity<WorkoutEntity> register(@RequestBody WorkoutDTO data){
         WorkoutEntity workout = service.register(data);
-        return ResponseEntity.ok().body(workout);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(workout.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }
