@@ -1,0 +1,6 @@
+#Database config
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gym-app-db
+    username: postgres
+    password: 12345
