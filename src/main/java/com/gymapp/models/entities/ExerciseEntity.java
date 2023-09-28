@@ -19,4 +19,36 @@ public class ExerciseEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "muscle_group_id")
     private MuscleGroupEntity muscleGroup;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public MuscleGroupEntity getMuscleGroup() {
+        return muscleGroup;
+    }
+
+    public void setMuscleGroup(MuscleGroupEntity muscleGroup) {
+        this.muscleGroup = muscleGroup;
+    }
 }

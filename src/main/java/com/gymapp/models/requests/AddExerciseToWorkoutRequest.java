@@ -10,4 +10,12 @@ import lombok.NoArgsConstructor;
 public class AddExerciseToWorkoutRequest {
 
     private Long exerciseId;
+
+    public Long getExerciseId() {
+        return exerciseId;
+    }
+
+    public void setExerciseId(Long exerciseId) {
+        this.exerciseId = exerciseId;
+    }
 }

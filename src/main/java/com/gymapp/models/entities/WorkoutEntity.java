@@ -24,4 +24,28 @@ public class WorkoutEntity {
             inverseJoinColumns = @JoinColumn(name = "exercise_id")
     )
     private List<ExerciseEntity> exercises = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<ExerciseEntity> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(List<ExerciseEntity> exercises) {
+        this.exercises = exercises;
+    }
 }
