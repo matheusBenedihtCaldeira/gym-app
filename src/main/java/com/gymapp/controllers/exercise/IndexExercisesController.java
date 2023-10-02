@@ -13,11 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class IndexExercisesController {
 
     @Autowired
     private IndexExercisesService service;
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+
     @GetMapping(value = "/exercises")
     public ResponseEntity<List<ExerciseEntity>> index(){
         List<ExerciseEntity> exercises = service.index();

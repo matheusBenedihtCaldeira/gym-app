@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class WorkoutDTO {
 
     private String name;
-    private Long exerciseId;
 
     public String getName() {
         return name;
@@ -18,13 +17,5 @@ public class WorkoutDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getExerciseId() {
-        return exerciseId;
-    }
-
-    public void setExerciseId(Long exerciseId) {
-        this.exerciseId = exerciseId;
     }
 }
